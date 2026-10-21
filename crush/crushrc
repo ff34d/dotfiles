@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# Keys import
+source "$HOME/.config/crush/keys.sh" || {
+  echo "crushrc: file not found $HOME/.config/crush/keys.sh" >&2
+  exit 1
+}
+
+# Add AITunnel provider
+provider add aitunnel \
+  --type openai-compat \
+  --base-url "https://api.aitunnel.ru/v1/" \
+  --api-key "$AITUNNEL_API_KEY"
+
+# Large model
+model large aitunnel/gpt-6-luna \
+  --think \
+  --max-tokens 32768 \
+  --temperature 0.1
+
+# Small model
+model small aitunnel/gpt-6-luna \
+  --max-tokens 4096 \
+  --temperature 0.0
+
+# Permissions
+permissions allow view ls grep glob edit write multiedit
+
+# Skills
+option skill-path "$HOME/.config/crush/skills"
+
+# Disable default skills
+option disable-skill crush-config
+option disable-skill crush-hooks
+option disable-skill jq

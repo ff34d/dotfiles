@@ -1,0 +1,5 @@
+[tools]
+cmake = "latest"
+java = "openjdk-17"
+lua = "latest"
+node = "25"

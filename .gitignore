@@ -1,0 +1,37 @@
+# Base & OS junk
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+node_modules/
+dist/
+build/
+.cache/
+
+# Secrets & Keys
+.env
+.env.*
+!.env.example
+keys.sh
+secrets.*
+*id_rsa*
+*id_ed25519*
+*.pem
+*.crt
+*.key
+*.pub
+*.gpg
+*.passwd
+
+# Tool specific secrets
+.mise.local.toml
+mise/config.local.toml
+.aws/
+.gcloud/
+.kube/config
+*history
+.zsh_history
+.bash_history
+
