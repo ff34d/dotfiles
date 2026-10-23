@@ -4,6 +4,7 @@
 TARGET_PATHS=(
   ~/.config/crush
   ~/.config/mise
+  ~/.config/nvim
   ~/.zshrc
 )
 
