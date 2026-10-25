@@ -1,26 +1,14 @@
 return {
 	-- Cmp dependencies
-	{
-		src = "https://github.com/hrsh7th/cmp-nvim-lsp",
-		event = "LspAttach",
-	},
-	{
-		src = "https://github.com/hrsh7th/cmp-buffer",
-		event = "InsertEnter",
-	},
-	{
-		src = "https://github.com/hrsh7th/cmp-path",
-		event = { "InsertEnter", "CmdlineEnter" },
-	},
-	{
-		src = "https://github.com/hrsh7th/cmp-cmdline",
-		event = "CmdlineEnter",
-	},
+	{ src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
+	{ src = "https://github.com/hrsh7th/cmp-buffer", data = { event = "InsertEnter" } },
+	{ src = "https://github.com/hrsh7th/cmp-path", data = { event = "InsertEnter" } },
+	{ src = "https://github.com/hrsh7th/cmp-cmdline", data = { event = "CmdLineEnter" } },
 	-- Cmp config
 	{
 		src = "https://github.com/hrsh7th/nvim-cmp",
-		event = { "InsertEnter", "CmdlineEnter" },
 		data = {
+			event = "DeferredUIEnter",
 			after = function()
 				local cmp = require("cmp")
 
