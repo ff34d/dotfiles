@@ -1,10 +1,10 @@
 ---
 name: vue
-description: "Use for Vue component implementation, Composition API, reactivity, props/emits, composables, lifecycle, or Vue-specific refactoring. Apply the project's Vue version and conventions."
+description: "Use for Vue component implementation, Composition API, reactivity, props/emits, composables, lifecycle, or Vue-specific refactoring. For JS/TS code changes, also load the TypeScript skill. Apply the project's Vue version and conventions."
 license: MIT
 metadata:
   author: Vladimir Volkov (ff34d)
-  version: 1.0
+  version: 1.1
 ---
 
 # Vue Practices
@@ -41,4 +41,4 @@ The preferred project convention is to keep styles in separate files and import 
 
 ## Verification
 
-Check reactive dependency behavior, watcher cleanup, props/emits contracts, and loading/error states. After a coherent batch of related edits, run only the relevant Vue typecheck/lint/tests; do not run them after every line or tool action. Re-run after relevant fixes or before completion as risk warrants. Avoid unrelated refactors.
+Check reactive dependency behavior, watcher cleanup, props/emits contracts, and loading/error states. Finish the related edit batch and review the diff before running one relevant Vue check. Never run checks after every line or tool action; rerun only when a relevant fix or risk justifies it. Avoid unrelated refactors.

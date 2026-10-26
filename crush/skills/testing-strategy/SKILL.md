@@ -4,7 +4,7 @@ description: "Use when choosing test coverage or writing, changing, or diagnosin
 license: MIT
 metadata:
   author: Vladimir Volkov (ff34d)
-  version: 1.1
+  version: 1.2
 ---
 
 # Testing Strategy
@@ -21,10 +21,11 @@ Use the cheapest test that gives credible confidence. Do not mock away the behav
 
 ## When to run checks
 
-- Do not run tests, typechecks, lint, or builds after every individual line edit or tool action. Finish a coherent batch of related changes first, then run the narrowest relevant check at a checkpoint.
-- Re-run a check when a subsequent fix could affect its result, when investigating a failure, or during final verification—not merely because another line changed.
-- For small changes, prefer one appropriate verification pass after implementation. For broad or risky changes, use checkpoints when they provide useful early feedback.
-- A typecheck is not a substitute for a behavioral test, and a test suite is not a substitute for typechecking when type correctness is relevant. Choose checks based on the change and repository scripts; do not automatically run every available command.
+- **Do not verify after each edit.** Editing one line/file or calling an edit tool is not a checkpoint. Do not run or ask to run tests, typechecks, lint, or builds after each such action.
+- Finish a coherent batch of related changes, inspect the diff, then run the narrowest relevant check once.
+- For ordinary low-risk changes, prefer a single post-implementation verification pass. Use intermediate checkpoints only for broad/high-risk work when the result will guide the next step.
+- Re-run a check only if a relevant fix may affect its result, to investigate a failure, or when a necessary final check has not covered the final state. Do not repeat a passing check without a concrete reason.
+- A typecheck is not a substitute for a behavioral test, and vice versa. Choose checks based on the change and repository scripts; do not automatically run every available command. Do not ask the user for permission to perform routine checks after each edit.
 
 ## What to test
 

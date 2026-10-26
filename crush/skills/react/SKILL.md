@@ -1,10 +1,10 @@
 ---
 name: react
-description: "Use for React component implementation, hooks, rendering behavior, state, props, context, or React-specific refactoring. For Next.js routing/server components, also use the Next.js skill when relevant."
+description: "Use for React component implementation, hooks, rendering behavior, state, props, context, or React-specific refactoring. For JS/TS code changes, also load the TypeScript skill. For Next.js routing/server components, also use the Next.js skill when relevant."
 license: MIT
 metadata:
   author: Vladimir Volkov (ff34d)
-  version: 1.0
+  version: 1.1
 ---
 
 # React Practices
@@ -37,4 +37,4 @@ Follow the project's React version, router, state/query libraries, and existing 
 
 ## Before finishing
 
-Check hook correctness, state ownership, effect cleanup/dependencies, keys, and accessibility. After a coherent batch of related edits, run only the relevant project checks (typecheck/lint/tests); do not run them after every line or tool action. Re-run after relevant fixes or before completion as risk warrants.
+Check hook correctness, state ownership, effect cleanup/dependencies, keys, and accessibility. For TypeScript changes, follow the shared batched-verification rule: finish the related edits and review the diff before running a relevant check once. Never run checks after every line or tool action; rerun only when a relevant fix or risk justifies it.

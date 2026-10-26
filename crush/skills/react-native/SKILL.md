@@ -1,10 +1,10 @@
 ---
 name: react-native
-description: "Use for React Native or Expo-specific implementation: native components, styling, navigation, gestures, platform APIs, permissions, or iOS/Android behavior. Use the React skill for general React concepts too when relevant."
+description: "Use for React Native or Expo-specific implementation: native components, styling, navigation, gestures, platform APIs, permissions, or iOS/Android behavior. For JS/TS code changes, also load the TypeScript skill; use the React skill for general React concepts too when relevant."
 license: MIT
 metadata:
   author: Vladimir Volkov (ff34d)
-  version: 1.0
+  version: 1.1
 ---
 
 # React Native Practices
@@ -36,4 +36,4 @@ Inspect the React Native/Expo version and existing navigation, styling, state, a
 
 ## Verification
 
-Check the affected platform(s), navigation/lifecycle behavior, permissions, and keyboard/safe-area layout. After a coherent batch of related edits, run relevant typecheck/lint/tests rather than after every line or tool action; rerun after relevant fixes or before completion as risk warrants. If a simulator/device is unavailable, state what could not be verified.
+Check the affected platform(s), navigation/lifecycle behavior, permissions, and keyboard/safe-area layout. Finish the related edit batch and review the diff before running one relevant check. Never run checks after every line or tool action; rerun only when a relevant fix or risk justifies it. If a simulator/device is unavailable, state what could not be verified.

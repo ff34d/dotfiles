@@ -1,10 +1,10 @@
 ---
 name: next
-description: "Use for Next.js-specific work: App/Pages Router, routing, layouts, server/client components, server actions, rendering, caching, metadata, or deployment behavior. For general React topics, use the React skill instead unless Next.js behavior is involved."
+description: "Use for Next.js-specific work: App/Pages Router, routing, layouts, server/client components, server actions, rendering, caching, metadata, or deployment behavior. For JS/TS code changes, also load the TypeScript skill. For general React topics, use the React skill instead unless Next.js behavior is involved."
 license: MIT
 metadata:
   author: Vladimir Volkov (ff34d)
-  version: 1.0
+  version: 1.1
 ---
 
 # Next.js Practices
@@ -35,4 +35,4 @@ First inspect the project's Next.js version, router structure, scripts, and exis
 
 ## Verification
 
-Check the relevant route in its actual rendering mode, loading/error/empty states, authorization, and cache invalidation. After a coherent batch of related edits, run the relevant build/typecheck once at a useful checkpoint rather than after every line or tool action; rerun after relevant fixes or before completion as risk warrants. Do not make version-specific claims without checking the installed version or repository documentation.
+Check the relevant route in its actual rendering mode, loading/error/empty states, authorization, and cache invalidation. Finish a coherent batch and review the diff before running one relevant check. Never run typecheck/build after every line or tool action; rerun only after a relevant fix or when risk warrants it. Do not make version-specific claims without checking the installed version or repository documentation.

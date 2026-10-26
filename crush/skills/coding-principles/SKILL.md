@@ -1,10 +1,10 @@
 ---
 name: coding-principles
-description: "Foundational coding rules for implementation and refactoring. Apply to code changes; do not load as a separate review procedure unless the task also asks to implement or refactor. Covers readability, complexity, error handling, naming, and pragmatic simplicity."
+description: "Foundational rules for implementation and refactoring. Apply to code changes; do not load as a separate review procedure unless implementation/refactoring is requested. Covers readability, complexity, error handling, naming, pragmatic simplicity, and batched verification."
 license: MIT
 metadata:
   author: Vladimir Volkov (ff34d)
-  version: 1.1
+  version: 1.2
 ---
 
 # Coding Principles
@@ -36,4 +36,14 @@ Use `architecture-patterns` when choosing layers, module boundaries, dependency 
 
 ## Quick check
 
-Before finishing, review correctness, naming, unnecessary complexity, error paths, accidental expensive loops, repository consistency, and unused code. **Batch verification:** do not run typecheck, lint, tests, or builds after every line edit or tool action. First complete a coherent set of related edits, then run the narrowest relevant checks once at a useful checkpoint. Re-run only after a fix that could affect the result, and perform appropriate final verification before reporting completion. For a tiny or low-risk change, avoid redundant checks; use judgment based on risk and repository conventions. Report checks that were run or could not be run.
+Before finishing, review correctness, naming, unnecessary complexity, error paths, repository consistency, and unused code.
+
+## Work in batches — important
+
+- **Editing is not a verification checkpoint.** Do not run, suggest, or ask the user to run `typecheck`, tests, lint, or build after each file edit, line edit, patch, or tool call.
+- First inspect the relevant code, make the full set of logically related changes, and review the diff. Then choose the smallest useful verification step.
+- For an ordinary low-risk change, run at most one relevant verification pass after implementation. Do not run `npm run typecheck` by default if the change does not materially affect types or if a more targeted check is sufficient.
+- Run a check earlier only when a concrete blocker requires its result to proceed, or when the task is broad/high-risk and an intermediate result changes the next step.
+- If a check fails, diagnose and fix the cause before rerunning it. Do not rerun just because more unrelated edits were made.
+- Before completion, use one final verification pass when warranted. If the same check already passed after the final relevant edit, do not repeat it without a reason.
+- Do not ask the user whether to run routine checks after every edit. Use judgment, batch the work, and report which checks were actually run.

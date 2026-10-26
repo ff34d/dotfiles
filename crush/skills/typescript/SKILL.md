@@ -1,10 +1,10 @@
 ---
 name: typescript
-description: "Use for JavaScript/TypeScript language decisions, type modeling, compiler errors, async/runtime behavior, frontend tooling, or type-safety improvements. Do not load for framework-only questions unless language or tooling behavior is involved."
+description: "Use whenever implementing or materially editing JavaScript/TypeScript code, modeling types, handling async/runtime behavior, diagnosing compiler errors, or changing frontend tooling. Load alongside React, Vue, Next.js, or React Native skills when their implementation includes JS/TS; the framework skill covers framework conventions and this skill covers language/type safety. For conceptual framework questions with no JS/TS code or type implications, it is not needed."
 license: MIT
 metadata:
   author: Vladimir Volkov (ff34d)
-  version: 1.0
+  version: 1.1
 ---
 
 # TypeScript and Frontend Language Practices
@@ -37,4 +37,4 @@ Prefer explicit, useful types and let the type system prevent invalid states. Fo
 
 ## Verification
 
-When changing type-heavy code, run the narrowest relevant typecheck when the related edits form a coherent unit. Do not rerun it after every line or tool action; batch related edits, check at a meaningful checkpoint, and rerun after relevant fixes or before completion. Do not automatically run lint, tests, and build alongside typecheck unless the change warrants them. Do not claim TypeScript guarantees runtime validation of network data; validate external data when required by the risk and contract.
+When changing type-heavy code, first finish the related implementation batch and review the diff. Run the narrowest relevant typecheck once after that batch if it adds meaningful confidence. **Never run or ask for a typecheck after each edit, file save, patch, or tool action.** Re-run only if a relevant fix may have changed the result, a failure needs diagnosis, or final verification is warranted and no check has covered the final state. Do not automatically run lint, tests, and build alongside typecheck unless the change warrants them. Do not claim TypeScript guarantees runtime validation of network data; validate external data when required by the risk and contract.
